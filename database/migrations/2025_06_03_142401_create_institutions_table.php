@@ -16,18 +16,12 @@ return new class extends Migration
             $table->string('key')->nullable()->unique();
             $table->string('name');
             $table->string('slug')->nullable()->unique();
+            $table->text('description')->nullable();
             $table->string('nif')->unique();
             $table->boolean('is_active')->default(true);
             $table->foreignId('user_id')->constrained()->onDelete('set null');
             $table->timestamps();
             $table->softDeletes();
-        });
-
-        Schema::create('institution_teacher', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('institution_id')->constrained();
-            $table->foreignId('teacher_id')->constrained();
-            $table->timestamps();
         });
     }
 
@@ -37,6 +31,5 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('institutions');
-        Schema::dropIfExists('institution_teacher');
     }
 };
