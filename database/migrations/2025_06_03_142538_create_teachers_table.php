@@ -25,6 +25,13 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('set null');
             $table->timestamps();
         });
+
+        Schema::create('institution_teacher', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('institution_id')->constrained();
+            $table->foreignId('teacher_id')->constrained();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -33,5 +40,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('teachers');
+        Schema::dropIfExists('institution_teacher');
     }
 };
