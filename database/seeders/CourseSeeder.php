@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Ramsey\Uuid\Uuid;
 use Illuminate\Support\Str;
 use App\Enums\CourseLevelEnum;
+use App\Enums\CourseModeEnum;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -25,6 +26,7 @@ class CourseSeeder extends Seeder
                 'is_active' => true,
                 'is_free' => true,
                 'level' => CourseLevelEnum::BEGINNER,
+                'mode' => CourseModeEnum::ONLINE,
                 'coursable_type' => 'App\Models\Institution',
                 'coursable_id' => 1
             ],
@@ -36,6 +38,7 @@ class CourseSeeder extends Seeder
                 'is_active' => true,
                 'is_free' => true,
                 'level' => CourseLevelEnum::BEGINNER,
+                'mode' => CourseModeEnum::IN_PERSON,
                 'coursable_type' => 'App\Models\Institution',
                 'coursable_id' => 1
             ],
@@ -47,6 +50,7 @@ class CourseSeeder extends Seeder
                 'is_active' => true,
                 'is_free' => true,
                 'level' => CourseLevelEnum::BEGINNER,
+                'mode' => CourseModeEnum::ONLINE,
                 'coursable_type' => 'App\Models\Institution',
                 'coursable_id' => 2
             ],
@@ -58,6 +62,7 @@ class CourseSeeder extends Seeder
                 'is_active' => true,
                 'is_free' => true,
                 'level' => CourseLevelEnum::BEGINNER,
+                'mode' => CourseModeEnum::HYBRID,
                 'coursable_type' => 'App\Models\Institution',
                 'coursable_id' => 2
             ]

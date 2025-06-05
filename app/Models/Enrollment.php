@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\StatusEnum;
 use App\Trait\HasKey;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -16,6 +17,10 @@ class Enrollment extends Model
         'course_id',
         'studant_id',
         'status'
+    ];
+
+    protected $casts = [
+        'status' => StatusEnum::class
     ];
 
     public function course()

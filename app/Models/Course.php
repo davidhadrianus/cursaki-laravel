@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Enums\CourseLevelEnum;
+use App\Enums\CourseModeEnum;
 use App\Trait\HasKey;
 use App\Trait\HasSlug;
 use Illuminate\Database\Eloquent\Model;
@@ -23,9 +25,15 @@ class Course extends Model
         'is_active',
         'is_free',
         'level',
+        'mode',
         'category_id',
         'coursable_id',
         'coursable_type',
+    ];
+
+    protected $casts = [
+        'level' => CourseLevelEnum::class,
+        'mode' => CourseModeEnum::class
     ];
 
     public function coursable(): MorphTo

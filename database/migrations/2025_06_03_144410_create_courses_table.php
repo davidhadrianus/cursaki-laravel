@@ -20,7 +20,8 @@ return new class extends Migration
             $table->foreignIdFor(\App\Models\CourseCategory::class, 'category_id')->nullable()->constrained()->onDelete('set null');
             $table->boolean('is_active')->default(true);
             $table->boolean('is_free')->default(false);
-            $table->string('level')->nullable();
+            $table->string('level')->default('BEGINNER');
+            $table->string('mode')->default('online');
             $table->morphs('coursable');
             $table->timestamps();
         });
