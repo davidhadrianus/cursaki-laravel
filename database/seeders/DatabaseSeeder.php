@@ -21,10 +21,17 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@panel.com',
             'password' => Hash::make('password'),
         ]);
+        User::factory()->create([
+            'name' => 'Academy Example',
+            'email' => 'academy@example.com',
+            'password' => Hash::make('password'),
+        ]);
 
         $this->call([
             StateSeeder::class,
             CitySeeder::class,
+            InstitutionSeeder::class,
+            CourseSeeder::class
         ]);
     }
 }
