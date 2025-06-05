@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug')->nullable()->unique();
             $table->text('description')->nullable();
-            $table->foreignIdFor(\App\Models\CourseCategory::class)->constrained()->onDelete('set null');
+            $table->foreignIdFor(\App\Models\CourseCategory::class, 'category_id')->nullable()->constrained()->onDelete('set null');
             $table->boolean('is_active')->default(true);
             $table->boolean('is_free')->default(false);
             $table->string('level')->nullable();
