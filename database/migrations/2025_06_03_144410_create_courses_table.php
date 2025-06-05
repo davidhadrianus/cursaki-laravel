@@ -24,6 +24,20 @@ return new class extends Migration
             $table->morphs('coursable');
             $table->timestamps();
         });
+
+        Schema::create('course_teacher', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('course_id')->constrained();
+            $table->foreignId('teacher_id')->constrained();
+            $table->timestamps();
+        });
+
+        Schema::create('course_studant', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('course_id')->constrained();
+            $table->foreignId('studant_id')->constrained();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -32,5 +46,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('courses');
+        Schema::dropIfExists('course_teacher');
     }
 };
