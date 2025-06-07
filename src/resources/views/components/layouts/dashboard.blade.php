@@ -73,7 +73,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
         <link rel="stylesheet" href="../../css2?family=Heebo:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap">
 
-            <!-- Plugins CSS -->
+        <!-- Plugins CSS -->
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/font-awesome/css/all.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/bootstrap-icons/bootstrap-icons.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/apexcharts/css/apexcharts.css') }}">
@@ -87,7 +87,12 @@
         <!-- Header END -->
         <!-- **************** MAIN CONTENT START **************** -->
         <main>
+            <!-- ======================= Page Banner START -->
+            <x-dashboard.page-banner />
+            <!-- ======================= Page Banner END -->
+            <!-- ======================= Page content START -->
             {{ $slot }}
+            <!-- ======================= Page content END -->
         </main>
         <!-- **************** MAIN CONTENT END **************** -->
         <!-- ======================= Footer START -->
