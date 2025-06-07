@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cursaki-laravel-app
+    working_dir: /var/www
+    volumes:
+      - ./src:/var/www
+    networks:
+      - cursaki-laravel
+
+  web:
+    image: nginx:latest
+    container_name: cursaki-laravel-nginx
+    ports:
+      - "8000:80"
+    volumes:
+      - ./src:/var/www
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - app
+    networks:
+      - cursaki-laravel
+
+  db:
+    image: postgres:15
+    container_name: cursaki-laravel-db
+    environment:
+      POSTGRES_DB: cursaki_laravel
+      POSTGRES_USER: cursakiuser
+      POSTGRES_PASSWORD: cursakisecret
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - cursaki-laravel
+
+networks:
+  cursaki-laravel:
+
+volumes:
+  pgdata:
